@@ -31,11 +31,12 @@
 package demo.parallel;
 
 
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.IntStream;
 import javafx.concurrent.Task;
 import javafx.scene.image.PixelWriter;
 import javafx.scene.paint.Color;
+
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.IntStream;
 
 
 /**
@@ -351,13 +352,13 @@ class MandelbrotSetTask extends Task<Long> {
          * Color stops for colors table: color values
          */
         Color[] cc = {
-            Color.rgb(40, 0, 0),
-            Color.RED,
-            Color.WHITE,
-            Color.RED,
-            Color.rgb(100, 0, 0),
-            Color.RED,
-            Color.rgb(50, 0, 0)
+            Color.rgb(0, 0, 40), // тёмно синий
+            Color.rgb(0, 100, 200), // ярко синий
+            Color.rgb(100, 200, 100), // светло зеленый
+            Color.rgb(0, 50, 0), // темно зеленый
+            Color.rgb(50, 150, 150), // бирюзовый
+            Color.rgb(0, 20, 40), // тёмно серый
+            Color.rgb(0, 0, 0) // черный
         };
         
         /**
