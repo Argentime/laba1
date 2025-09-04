@@ -84,6 +84,15 @@ public class Complex {
         im = imag;
         return this;
     }
+    public Complex divide(Complex other) {
+        double denominator = other.re * other.re + other.im * other.im;
+        if (denominator == 0) {
+            throw new IllegalArgumentException("Division by zero complex number is not allowed.");
+        }
+        double realPart = (this.re * other.re + this.im * other.im) / denominator;
+        double imaginaryPart = (this.im * other.re - this.re * other.im) / denominator;
+        return new Complex(realPart, imaginaryPart);
+    }
 
     /**
      * Square of Complex object's length, we're using square of length to 
