@@ -275,10 +275,13 @@ class MandelbrotSetTask extends Task<Long> {
     private int calc(Complex comp) {
         int count = 0;
         Complex c = new Complex(0, 0);
+        Complex ONE = new Complex(1, 0);
+        if (comp.lengthSQ() == 0) {
+            return CAL_MAX_COUNT;
+        }
 
         do {
-            // Новое уравнение фрактала: c = c^2 + c + comp
-            c = c.times(c).plus(c).plus(comp);
+            c = c.times(c).plus(ONE.divide(comp));
             count++;
         } while (count < CAL_MAX_COUNT && c.lengthSQ() < LENGTH_BOUNDARY);
 
